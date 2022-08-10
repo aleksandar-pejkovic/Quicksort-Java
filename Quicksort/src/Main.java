@@ -1,21 +1,17 @@
+package main;
+
 import java.util.Random;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Random rand = new Random();
-		int[] numbers = new int[10];
-
-		for (int i = 0; i < numbers.length; i++) {
-			numbers[i] = rand.nextInt(100);
-		}
+		int[] numbers = genArray(15, 100);
 
 		printArray(numbers);
 
 		quicksort(numbers);
 
-		System.out.println();
 		printArray(numbers);
 
 	}
@@ -74,6 +70,16 @@ public class Main {
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
 		}
+		System.out.println();
+	}
+
+	private static int[] genArray(int length, int maxNum) {
+
+		int[] numbers = new int[length];
+		for (int i = 0; i < length; i++) {
+			numbers[i] = new Random().nextInt(maxNum);
+		}
+		return numbers;
 	}
 
 }
